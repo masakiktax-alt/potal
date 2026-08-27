@@ -9,51 +9,56 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--ink:#242428;--muted:#777278;--rose:#b75b70;--rose2:#d99aa8;--line:#eadde1;--wash:#fbf7f8;--white:#fff}
+:root{--ink:#191516;--muted:#6f6869;--crimson:#951e2d;--crimson-dark:#741520;--line:#d8c7c9;--wash:#f7f3f1;--white:#fff}
 html{scroll-behavior:smooth}
-body{min-height:100vh;background:var(--white);color:var(--ink);font-family:'Zen Kaku Gothic New',sans-serif;font-weight:300;line-height:1.8}
+body{min-height:100vh;background:#eeeae7;color:var(--ink);font-family:'Zen Kaku Gothic New',sans-serif;font-weight:400;line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:inherit}
-.shell{min-height:100vh;display:grid;grid-template-rows:auto 1fr auto}
-.header{height:72px;padding:0 clamp(24px,4vw,68px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:rgba(255,255,255,.92);backdrop-filter:blur(10px)}
-.wordmark{font-size:13px;letter-spacing:.32em;font-weight:500;text-decoration:none}
-.header-note{font-family:'Cormorant Garamond',serif;color:var(--rose);font-size:12px;letter-spacing:.24em;text-transform:uppercase}
-.main{display:grid;grid-template-columns:minmax(270px,.7fr) minmax(650px,1.55fr);min-height:calc(100vh - 118px)}
-.intro{padding:clamp(48px,7vw,96px) clamp(24px,4vw,64px);display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--line);position:relative;overflow:hidden}
+.shell{width:min(1500px,100%);min-height:100vh;margin:auto;display:grid;grid-template-rows:auto 1fr auto;background:var(--white);box-shadow:0 0 45px rgba(48,29,31,.08)}
+.header{height:72px;padding:0 clamp(26px,4vw,68px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--crimson);background:rgba(255,255,255,.96);backdrop-filter:blur(10px);position:relative;z-index:10}
+.wordmark{font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.22em;font-weight:500;color:var(--crimson);text-decoration:none}
+.header-note{display:grid;gap:1px;text-align:left;text-transform:uppercase;line-height:1.05}
+.header-note strong{color:var(--crimson);font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:500;letter-spacing:.09em}
+.header-note span{color:var(--ink);font-size:8px;font-weight:500;letter-spacing:.17em}
+.main{display:grid;grid-template-columns:minmax(300px,.68fr) minmax(660px,1.5fr);min-height:calc(100vh - 122px)}
+.intro{padding:clamp(56px,7vw,104px) clamp(28px,4vw,68px);display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--crimson);position:relative;background:linear-gradient(150deg,#fff 0%,#fdfafa 100%)}
+.intro::after{content:'MK';position:absolute;right:-4px;bottom:10px;font-family:'Cormorant Garamond',serif;font-size:clamp(110px,12vw,190px);line-height:1;color:rgba(149,30,45,.035);pointer-events:none}
 .intro>*{position:relative;z-index:1}
-.name{font-size:clamp(34px,3vw,52px);line-height:1.05;letter-spacing:.1em;font-weight:400;margin-bottom:28px;white-space:nowrap}
-.triad{font-family:'Cormorant Garamond',serif;color:var(--rose);font-size:clamp(16px,1.5vw,21px);letter-spacing:.08em;margin-bottom:42px}
-.tagline{font-size:clamp(18px,1.8vw,24px);font-weight:400;line-height:1.7;letter-spacing:.06em;margin-bottom:22px}
-.tagline::before{content:'';display:block;width:36px;height:2px;background:var(--rose);margin-bottom:20px}
-.summary{max-width:440px;font-size:14.5px;color:var(--muted);line-height:2}
-.portal-url{margin-top:42px;display:flex;align-items:center;gap:12px;font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:.1em;color:var(--rose)}
-.portal-url svg{width:18px;height:18px}
-.network{padding:clamp(34px,5vw,72px);display:flex;align-items:center;background:linear-gradient(145deg,#fff 0%,var(--wash) 100%);position:relative}
-.network::before{content:'';position:absolute;inset:0;background:linear-gradient(rgba(183,91,112,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(183,91,112,.045) 1px,transparent 1px);background-size:52px 52px;mask-image:radial-gradient(circle at center,#000,transparent 78%)}
-.map{width:100%;max-width:1000px;margin:auto;position:relative;z-index:1}
-.hub{width:174px;height:174px;margin:0 auto 42px;border:1px solid var(--rose);border-radius:50%;padding:9px;background:rgba(255,255,255,.88);box-shadow:0 14px 45px rgba(183,91,112,.12)}
-.hub-inner{height:100%;border:1px solid var(--rose2);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
-.hub-name{font-family:'Cormorant Garamond',serif;font-size:22px;line-height:1.05;letter-spacing:.12em;color:var(--rose);margin-bottom:9px}
-.hub-role{font-size:12.5px;line-height:1.55;color:var(--muted)}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.card{min-height:178px;background:rgba(255,255,255,.9);border:1px solid var(--line);padding:20px;text-decoration:none;display:flex;flex-direction:column;position:relative;transition:transform .25s,border-color .25s,box-shadow .25s}
-.card:hover{transform:translateY(-4px);border-color:var(--rose2);box-shadow:0 12px 30px rgba(83,42,52,.08)}
-.card-top{display:flex;justify-content:space-between;align-items:center;color:var(--rose);margin-bottom:15px}
-.card-no{font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.16em}.arrow{font-size:16px;transition:transform .25s}.card:hover .arrow{transform:translate(3px,-3px)}
-.category{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--rose);padding-bottom:8px;margin-bottom:10px;border-bottom:1px solid var(--rose2);display:flex;align-items:center;gap:9px}
-.category svg{width:21px;height:21px;flex:0 0 21px;stroke-width:1.45;stroke-linecap:round;stroke-linejoin:round}
-.site-name{font-size:14px;font-weight:400;line-height:1.5;margin-bottom:5px}
-.description{font-size:13px;line-height:1.75;color:var(--muted);margin-bottom:12px}
-.domain{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.08em;margin-top:auto;color:#4b474b}
-.footer{min-height:46px;display:flex;align-items:center;justify-content:center;padding:10px 24px;background:linear-gradient(90deg,#f7ecef,#ead7dc,#f7ecef);font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:.23em;color:var(--rose)}
-@media(max-width:980px){.main{grid-template-columns:1fr}.intro{border-right:0;border-bottom:1px solid var(--line);padding-bottom:52px}.network{padding-top:50px}.cards{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:620px){.header{height:60px;padding:0 20px}.header-note{display:none}.main{min-height:auto}.intro{padding:48px 24px}.name{font-size:42px}.triad{font-size:16px;margin-bottom:32px}.tagline{font-size:18px}.network{padding:38px 18px}.hub{width:150px;height:150px;margin-bottom:30px}.hub-name{font-size:19px}.cards{grid-template-columns:1fr;gap:10px}.card{min-height:150px}.footer{text-align:center;font-size:12px;letter-spacing:.15em}}
+.name{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,4.2vw,68px);line-height:.9;letter-spacing:.075em;font-weight:500;color:var(--crimson);margin-bottom:26px;white-space:nowrap}
+.triad{font-size:10px;font-weight:500;color:var(--crimson);letter-spacing:.19em;text-transform:uppercase;margin-bottom:46px}
+.tagline{font-size:clamp(19px,1.65vw,25px);font-weight:500;line-height:1.7;letter-spacing:.055em;margin-bottom:20px}
+.tagline::before{content:'';display:block;width:54px;height:2px;background:var(--crimson);margin-bottom:22px}
+.summary{max-width:390px;font-size:13px;color:var(--muted);line-height:1.9}
+.portal-url{margin-top:38px;display:flex;align-items:center;gap:10px;font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.08em;color:var(--crimson);font-weight:500}
+.portal-url svg{width:17px;height:17px}
+.network{padding:clamp(44px,5vw,78px);display:flex;align-items:center;background:#fff;position:relative}
+.map{width:100%;max-width:920px;margin:auto;position:relative}
+.hub{display:none}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--crimson);border-bottom:1px solid var(--crimson)}
+.card{min-height:192px;padding:28px 28px 25px 100px;text-decoration:none;display:flex;flex-direction:column;position:relative;border-bottom:1px solid var(--line);transition:background .3s,color .3s}
+.card:nth-child(odd){border-right:1px solid var(--line)}
+.card:nth-last-child(-n+2){border-bottom:0}
+.card::before{content:'';position:absolute;left:78px;top:24px;bottom:24px;width:1px;background:var(--crimson)}
+.card:hover{background:var(--wash)}
+.card-top{position:absolute;right:20px;top:19px;display:flex;align-items:center;gap:10px;color:var(--crimson)}
+.card-no{font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.15em;opacity:.62}
+.arrow{font-size:17px;transition:transform .25s}.card:hover .arrow{transform:translate(3px,-3px)}
+.category{font-size:10px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--crimson);margin-bottom:8px;display:block}
+.category svg{position:absolute;left:19px;top:31px;width:43px;height:43px;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s}
+.card:hover .category svg{transform:scale(1.05)}
+.site-name{font-size:15px;font-weight:500;line-height:1.45;margin-bottom:3px;padding-right:28px}
+.description{font-size:12.5px;line-height:1.65;color:var(--muted);margin-bottom:10px}
+.domain{font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.04em;margin-top:auto;color:var(--crimson);font-weight:500}
+.footer{min-height:50px;display:flex;align-items:center;justify-content:space-between;padding:12px clamp(26px,4vw,68px);border-top:1px solid var(--crimson);background:#fff;font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.19em;color:var(--crimson)}
+.footer::before{content:'Research × Education × Practice';font-family:'Zen Kaku Gothic New',sans-serif;font-size:9px;letter-spacing:.15em;color:var(--ink)}
+@media(max-width:1040px){.main{grid-template-columns:1fr}.intro{border-right:0;border-bottom:1px solid var(--crimson);padding-bottom:60px}.network{padding-top:56px}.intro::after{right:20px}.name{font-size:58px}.summary{max-width:600px}}
+@media(max-width:680px){.header{height:60px;padding:0 20px}.header-note{display:none}.main{min-height:auto}.intro{padding:46px 22px}.name{font-size:46px}.triad{margin-bottom:34px}.tagline{font-size:18px}.network{padding:36px 20px}.cards{grid-template-columns:1fr}.card{min-height:166px;padding:24px 20px 22px 90px;border-right:0!important;border-bottom:1px solid var(--line)!important}.card:last-child{border-bottom:0!important}.card::before{left:70px;top:20px;bottom:20px}.category svg{left:17px;top:28px;width:39px;height:39px}.footer{justify-content:center;text-align:center;font-size:11px;letter-spacing:.13em}.footer::before{display:none}}
 </style>
 </head>
 <body>
 <div class="shell">
   <header class="header">
     <a class="wordmark" href="https://masakikurihara.com/">MASAKI KURIHARA</a>
-    <div class="header-note">Research × Education × Practice</div>
+    <div class="header-note"><strong>MASAKI KURIHARA</strong><span>ALL ACTIVITIES &amp; LINKS</span></div>
   </header>
   <main class="main">
     <section class="intro">
@@ -78,32 +83,32 @@ a{color:inherit}
           <a class="card" href="https://lab.masakikurihara.com/">
             <div class="card-top"><span class="card-no">01</span><span class="arrow">↗</span></div>
             <div class="category"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m3 9 9-5 9 5-9 5-9-5Z"/><path d="M7 12v4c3 2 7 2 10 0v-4M21 9v6"/></svg>Academic</div><div class="site-name">Open Intelligence Lab</div>
-            <div class="description">研究スタンスと活動</div><div class="domain">lab.masakikurihara.com</div>
+            <div class="description">研究領域だけでなく、学問・実務／学生・教員・実務家／芸術・スポーツ、あらゆる枠を越え、今何を問うべきか。<br>栗原の研究スタイルと活動について述べられています。</div><div class="domain">lab.masakikurihara.com</div>
           </a>
           <a class="card" href="https://kzemi-alumni.com/">
             <div class="card-top"><span class="card-no">02</span><span class="arrow">↗</span></div>
             <div class="category"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.3"/><path d="M3.5 19c.5-4 2.4-6 5.5-6s5 2 5.5 6M14 14c3.5-.8 5.5.9 6 4"/></svg>Education</div><div class="site-name">栗原ゼミ アルムナイ</div>
-            <div class="description">創発を促す実践的教育プロジェクト</div><div class="domain">kzemi-alumni.com</div>
+            <div class="description">栗原ゼミの現役生及び卒業生の教育・活動に関するサイトです。<br>システム・複雑系・カオスという栗原が師から継承した理論モデルの教育的実践を行っています。</div><div class="domain">kzemi-alumni.com</div>
           </a>
           <a class="card" href="https://professionsedge.com/">
             <div class="card-top"><span class="card-no">03</span><span class="arrow">↗</span></div>
             <div class="category"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M3 6.5c3-1 6-.2 9 2.2v10c-3-2.4-6-3.2-9-2.2zM21 6.5c-3-1-6-.2-9 2.2v10c3-2.4 6-3.2 9-2.2z"/><path d="M12 8.7v10"/></svg>Mentoring</div><div class="site-name">合同会社 ProfeSsions Edge</div>
-            <div class="description">経営者向けパーソナルMBA × コンサルティング</div><div class="domain">professionsedge.com</div>
+            <div class="description">経営者向けのパーソナルMBA及びコンサルティング事業に関するサイトです。</div><div class="domain">professionsedge.com</div>
           </a>
           <a class="card" href="https://chitekium.com/">
             <div class="card-top"><span class="card-no">04</span><span class="arrow">↗</span></div>
             <div class="category"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4M10 10h4v4h-4z"/></svg>AI &amp; Technology</div><div class="site-name">事業ブランド　チテキウム</div>
-            <div class="description">AIとテクノロジーの社会実装</div><div class="domain">chitekium.com</div>
+            <div class="description">AIと人が共生する業務設計を提案する事業に関するサイトです。<br>経営の中で「AI」が動く提案を行います。</div><div class="domain">chitekium.com</div>
           </a>
           <a class="card" href="https://mkctaoffice.com/">
             <div class="card-top"><span class="card-no">05</span><span class="arrow">↗</span></div>
             <div class="category"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M8 6h8v4H8zM8 14h2M14 14h2M8 17h2M14 17h2"/></svg>Tax &amp; Accounting</div><div class="site-name">栗原正樹税理士事務所</div>
-            <div class="description">税務及び会計</div><div class="domain">mkctaoffice.com</div>
+            <div class="description">一般的な会計及び税務を取り扱う事務所です。少人数の事務所で、業務を抱え込まず、適切な専門家と連携し、シームレスなサービスを提供します。</div><div class="domain">mkctaoffice.com</div>
           </a>
           <a class="card" href="https://pse-ac.com/">
             <div class="card-top"><span class="card-no">06</span><span class="arrow">↗</span></div>
             <div class="category"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="18" r="2.5"/><circle cx="19" cy="18" r="2.5"/><path d="m10.8 7.2-4.6 8.6M13.2 7.2l4.6 8.6M7.5 18h9"/></svg>Group / Network</div><div class="site-name">PSE ACCOUNTING FIRM</div>
-            <div class="description">専門家ネットワーク</div><div class="domain">pse-ac.com</div>
+            <div class="description">栗原が主宰する専門家ネットワークです。資本関係ではなく、シンボルと理念を共有する仲間に関するサイトです。</div><div class="domain">pse-ac.com</div>
           </a>
         </div>
       </div>
