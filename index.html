@@ -25,10 +25,33 @@ a{color:inherit}
 .intro>*{position:relative;z-index:1}
 .name{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,4.2vw,68px);line-height:.9;letter-spacing:.075em;font-weight:500;color:var(--crimson);margin-bottom:26px;white-space:nowrap}
 .triad{font-size:10px;font-weight:500;color:var(--crimson);letter-spacing:.19em;text-transform:uppercase;margin-bottom:46px}
-.tagline{font-size:clamp(19px,1.65vw,25px);font-weight:500;line-height:1.7;letter-spacing:.055em;margin-bottom:20px}
+.tagline{font-size:18.5px;font-weight:500;line-height:1.7;letter-spacing:.055em;margin-bottom:20px}
 .tagline::before{content:'';display:block;width:54px;height:2px;background:var(--crimson);margin-bottom:22px}
+.tagline-tail{display:inline-block;margin-left:.5em}
 .summary{max-width:390px;font-size:13px;color:var(--muted);line-height:1.9}
-.portal-url{margin-top:38px;display:flex;align-items:center;gap:10px;font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.08em;color:var(--crimson);font-weight:500}
+.summary-emphasis{color:var(--ink);font-weight:500}
+.relation-control{width:max-content;max-width:100%;margin-top:24px}
+.relation-trigger{appearance:none;border:1px solid var(--crimson);background:#fff;color:var(--crimson-dark);padding:10px 15px;font:500 11px/1.2 'Zen Kaku Gothic New',sans-serif;letter-spacing:.08em;cursor:pointer;display:flex;align-items:center;gap:12px;transition:background .25s,color .25s,box-shadow .25s}
+.relation-trigger::after{content:'↗';font-family:'Cormorant Garamond',serif;font-size:16px;line-height:1;transition:transform .25s}
+.relation-trigger:hover,.relation-trigger:focus-visible,.relation-control.is-open .relation-trigger{background:var(--crimson);color:#fff;box-shadow:0 8px 22px rgba(116,21,32,.13);outline:none}
+.relation-trigger:hover::after,.relation-control.is-open .relation-trigger::after{transform:translate(2px,-2px)}
+.relation-popup{position:fixed;z-index:50;left:50%;top:50%;width:min(790px,calc(100vw - 48px));max-height:calc(100vh - 48px);overflow:auto;transform:translate(-50%,-48%) scale(.985);padding:30px;background:rgba(255,255,255,.985);border:1px solid var(--crimson);box-shadow:0 28px 80px rgba(45,24,27,.25);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s,transform .25s,visibility .25s}
+.relation-control:hover .relation-popup,.relation-control:focus-within .relation-popup,.relation-control.is-open .relation-popup{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,-50%) scale(1)}
+.relation-popup-close{position:absolute;right:16px;top:13px;width:32px;height:32px;border:0;background:transparent;color:var(--crimson);font:300 25px/1 'Zen Kaku Gothic New',sans-serif;cursor:pointer}
+.relation-kicker{font:500 9px/1.3 'Zen Kaku Gothic New',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--crimson);margin-bottom:8px}
+.relation-title{font-family:'Cormorant Garamond','Zen Kaku Gothic New',serif;font-size:27px;font-weight:500;letter-spacing:.04em;color:var(--crimson-dark);margin-bottom:6px}
+.relation-lead{max-width:650px;font-size:12px;line-height:1.8;color:var(--muted);margin-bottom:22px}
+.relation-flow{display:grid;grid-template-columns:.8fr 1.35fr .9fr;gap:24px;align-items:stretch}
+.relation-stage{position:relative;border-top:1px solid var(--crimson);padding-top:13px}
+.relation-stage+.relation-stage::before{content:'→';position:absolute;left:-18px;top:47%;color:var(--crimson);font-family:'Cormorant Garamond',serif;font-size:20px}
+.relation-stage-label{font-size:9px;font-weight:500;letter-spacing:.14em;color:var(--crimson);text-transform:uppercase;margin-bottom:5px}
+.relation-stage h3{font-size:14px;font-weight:500;line-height:1.55;margin-bottom:11px}
+.relation-node{padding:10px 11px;background:var(--wash);border-left:2px solid var(--crimson);margin-top:8px}
+.relation-node strong{display:block;font-size:11.5px;font-weight:500;color:var(--ink);margin-bottom:2px}
+.relation-node span{display:block;font-size:10.5px;line-height:1.55;color:var(--muted)}
+.relation-foot{margin-top:20px;padding-top:14px;border-top:1px solid var(--line);font-size:11.5px;line-height:1.75;color:var(--ink)}
+.relation-foot strong{color:var(--crimson);font-weight:500}
+.portal-url{margin-top:20px;display:flex;align-items:center;gap:10px;font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.08em;color:var(--crimson);font-weight:500}
 .portal-url svg{width:17px;height:17px}
 .network{padding:clamp(44px,5vw,78px);display:flex;align-items:center;background:#fff;position:relative}
 .map{width:100%;max-width:920px;margin:auto;position:relative}
@@ -52,7 +75,7 @@ a{color:inherit}
 .footer{min-height:50px;display:flex;align-items:center;justify-content:space-between;padding:12px clamp(26px,4vw,68px);border-top:1px solid var(--crimson);background:#fff;font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.19em;color:var(--crimson)}
 .footer::before{content:'Research × Education × Practice';font-family:'Zen Kaku Gothic New',sans-serif;font-size:9px;letter-spacing:.15em;color:var(--ink)}
 @media(max-width:1040px){.main{grid-template-columns:1fr}.intro{border-right:0;border-bottom:1px solid var(--crimson);padding-bottom:60px}.network{padding-top:56px}.intro::after{right:20px}.name{font-size:58px}.summary{max-width:600px}}
-@media(max-width:680px){.header{height:60px;padding:0 20px}.header-note{display:none}.main{min-height:auto}.intro{padding:46px 22px}.name{font-size:46px}.triad{margin-bottom:34px}.tagline{font-size:18px}.network{padding:36px 20px}.cards{grid-template-columns:1fr}.card{min-height:166px;padding:24px 20px 22px 90px;border-right:0!important;border-bottom:1px solid var(--line)!important}.card:last-child{border-bottom:0!important}.card::before{left:70px;top:20px;bottom:20px}.category svg{left:17px;top:28px;width:39px;height:39px}.footer{justify-content:center;text-align:center;font-size:11px;letter-spacing:.13em}.footer::before{display:none}}
+@media(max-width:680px){.header{height:60px;padding:0 20px}.header-note{display:none}.main{min-height:auto}.intro{padding:46px 22px}.name{font-size:46px}.triad{margin-bottom:34px}.tagline{font-size:18px}.relation-popup{width:calc(100vw - 28px);max-height:calc(100vh - 28px);padding:26px 20px}.relation-title{font-size:23px;padding-right:25px}.relation-flow{grid-template-columns:1fr;gap:19px}.relation-stage+.relation-stage::before{content:'↓';left:50%;top:-20px}.network{padding:36px 20px}.cards{grid-template-columns:1fr}.card{min-height:166px;padding:24px 20px 22px 90px;border-right:0!important;border-bottom:1px solid var(--line)!important}.card:last-child{border-bottom:0!important}.card::before{left:70px;top:20px;bottom:20px}.category svg{left:17px;top:28px;width:39px;height:39px}.footer{justify-content:center;text-align:center;font-size:11px;letter-spacing:.13em}.footer::before{display:none}}
 </style>
 </head>
 <body>
@@ -65,8 +88,38 @@ a{color:inherit}
     <section class="intro">
       <h1 class="name">MASAKI<br>KURIHARA</h1>
       <div class="triad">Research × Education × Practice</div>
-      <div class="tagline">研究と実務<br>垣根ない統合を目指す</div>
-      <p class="summary">このページは栗原の取り組み全体を結ぶポータルサイトです。</p>
+      <div class="tagline">「何が起きているか」ではなく、<br>「なぜ起きるのか」を解明し、<br>「起きることが本当に問題か」<br><span class="tagline-tail">から考える。</span></div>
+      <p class="summary">全体を俯瞰し、「本当に問題とすべきことは何か」から問い直す。研究と実務を横断し、<span class="summary-emphasis">真のソリューション</span>を提案します。このサイトは、栗原の活動全体をまとめたポータルサイトです。</p>
+      <div class="relation-control" id="relationControl">
+        <button class="relation-trigger" id="relationTrigger" type="button" aria-expanded="false" aria-controls="relationPopup">活動の関係性を見る</button>
+        <aside class="relation-popup" id="relationPopup" role="dialog" aria-modal="false" aria-hidden="true" aria-labelledby="relationTitle">
+          <button class="relation-popup-close" type="button" aria-label="活動の関係性を閉じる">×</button>
+          <div class="relation-kicker">Activity Architecture</div>
+          <h2 class="relation-title" id="relationTitle">問いから、実務まで。</h2>
+          <p class="relation-lead">栗原の活動は、個別に存在するものではありません。問題の本質を問い、何をすべきかを考え、その答えを現実の実務へつなぐ一つの流れを構成しています。</p>
+          <div class="relation-flow">
+            <section class="relation-stage">
+              <div class="relation-stage-label">01 / Question</div>
+              <h3>問いと理論をつくる</h3>
+              <div class="relation-node"><strong>Open Intelligence Lab</strong><span>問題意識、研究スタイル、栗原が提供できる知見を示す研究基盤。</span></div>
+            </section>
+            <section class="relation-stage">
+              <div class="relation-stage-label">02 / Think &amp; Practice</div>
+              <h3>「何をすべきか」を考える力を育てる</h3>
+              <div class="relation-node"><strong>栗原ゼミ Alumni</strong><span>研究成果と理論モデルを、教育と人の関わりの中で実践する場。</span></div>
+              <div class="relation-node"><strong>ProfeSsions Edge</strong><span>学問の力を民間へ移し、経営の現場で理論モデルを実践・検証する場。</span></div>
+              <div class="relation-node"><strong>チテキウム</strong><span>理論モデルに基づき、AIに特化した人と業務の関係を設計する事業。</span></div>
+            </section>
+            <section class="relation-stage">
+              <div class="relation-stage-label">03 / Implement</div>
+              <h3>実務として受け止める</h3>
+              <div class="relation-node"><strong>栗原正樹税理士事務所</strong><span>会計・税務を通じて、考えたことを現実の業務へ落とす実務基盤。</span></div>
+              <div class="relation-node"><strong>PSE ACCOUNTING FIRM</strong><span>必要な専門性をつなぎ、実行を支える専門家ネットワーク。</span></div>
+            </section>
+          </div>
+          <p class="relation-foot"><strong>研究 → 教育・設計 → 実務。</strong> すべての活動は、「本当に問題とすべきことは何か」を問い直し、真のソリューションへ到達するためにつながっています。</p>
+        </aside>
+      </div>
       <div class="portal-url">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 4.2 6 4.2 9S15 18 12 21c-3-3-4.2-6-4.2-9S9 6 12 3z"/></svg>
         masakikurihara.com
@@ -117,5 +170,26 @@ a{color:inherit}
   </main>
   <footer class="footer">Be the professionals shaping a new era.</footer>
 </div>
+<script>
+(() => {
+  const control = document.getElementById('relationControl');
+  const trigger = document.getElementById('relationTrigger');
+  const popup = document.getElementById('relationPopup');
+  const close = popup.querySelector('.relation-popup-close');
+  const setOpen = (open) => {
+    control.classList.toggle('is-open', open);
+    trigger.setAttribute('aria-expanded', String(open));
+    popup.setAttribute('aria-hidden', String(!open));
+  };
+  trigger.addEventListener('click', () => setOpen(!control.classList.contains('is-open')));
+  close.addEventListener('click', () => { setOpen(false); trigger.focus(); });
+  document.addEventListener('click', (event) => {
+    if (!control.contains(event.target)) setOpen(false);
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') { setOpen(false); trigger.focus(); }
+  });
+})();
+</script>
 </body>
 </html>
